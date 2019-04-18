@@ -1,8 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+/*
+const currentDate = () => {
+	const date = new Date();
+	return date.toDateString();
+};
+
+// const greeting = React.createElement('h1', {}, 'Hello World!');
+const greeting = <h1>Hello World! Current Date: {currentDate()}</h1>;
+*/
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
