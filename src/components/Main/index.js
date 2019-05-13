@@ -7,9 +7,9 @@ import Error404 from '../App/Errors';
 const main = (props) => {
 	return (
 		<Switch>
-			<Route exact path="/" component={Series} exact />
+			<Route exact path="/" component={Series} />
 			<Route path="/series/:id" component={SingleSeries} />
-			<Route component={Error404} exact />
+			<Route exact component={Error404} />
 		</Switch>
 	);
 };

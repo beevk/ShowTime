@@ -3,9 +3,19 @@ import './index.css';
 import { Link } from 'react-router-dom';
 
 const SeriesListItem = ({ series }) => {
+	// const img = series.show.image;
 	return (
 		<li>
-			<Link to={`/series/${series.show.id}`}>{series.show.name}</Link>
+			{/* <img src={img} alt="" /> */}
+			<Link to={`/series/${series.show.id}`}>
+				<div className="searchResult">
+					{series.show.name} <br />
+					<span className="mono">
+						{series.show.rating.average}
+						<span> {series.show.genres.toString()} </span>
+					</span>
+				</div>
+			</Link>
 		</li>
 	);
 };

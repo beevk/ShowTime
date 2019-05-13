@@ -2,3 +2,16 @@
 	list-style-type: none;
 	padding: 0;
 }
+
+.searchResult {
+	border-bottom: 3px solid #282c34;
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+.mono {
+	color: #8e95a5;
+	font-family: Roboto, sans-serif;
+	font-size: .9rem;
+}

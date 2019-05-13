@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Loader from '../../components/Loader';
+import PreviousEpisode from './PreviousEpisode';
 
 class SingleSeries extends Component {
 	state = {
@@ -23,14 +24,15 @@ class SingleSeries extends Component {
 						<p>
 							<img alt="Show" src={show.image.medium} />
 						</p>
-						<p>
-							<b>{show.name}</b>
-						</p>
+						<h2>{show.name}</h2>
 						<p>Premiered: {show.premiered}</p>
 						<p>Runtime: {show.runtime}</p>
-						<p>Ratings: {show.rating.average}</p>
-						<p>Plot: {show.summary}</p>
-						<p>Episodes: {show._embedded.episodes.length}</p>
+						<p>Ratings: {show.rating.average || 'n/a'}</p>
+						<p>Status: {show.status || 'n/a'}</p>
+						<div>Plot: {show.summary}</div>
+						<p>Total Episodes: {show._embedded.episodes.length}</p>
+						<p>Language: {show.language}</p>
+						<PreviousEpisode href={show._links.previousepisode.href} />
 					</div>
 				)}
 			</div>
