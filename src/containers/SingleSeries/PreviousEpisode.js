@@ -26,7 +26,9 @@ class PreviousEpisode extends React.Component {
 							S{information.season}e{information.number}
 						</p>
 						<p>AirTime: {information.airtime || 'n/a'}</p>
-						Plot: {information.summary || 'n/a'}
+						<div>
+							Plot: <span dangerouslySetInnerHTML={{ __html: information.summary } || 'n/a'} />
+						</div>
 					</div>
 				)}
 			</div>

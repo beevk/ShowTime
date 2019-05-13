@@ -29,7 +29,9 @@ class SingleSeries extends Component {
 						<p>Runtime: {show.runtime}</p>
 						<p>Ratings: {show.rating.average || 'n/a'}</p>
 						<p>Status: {show.status || 'n/a'}</p>
-						<div>Plot: {show.summary}</div>
+						<div>
+							Plot: <span dangerouslySetInnerHTML={{ __html: show.summary } || 'n/a'} />
+						</div>
 						<p>Total Episodes: {show._embedded.episodes.length}</p>
 						<p>Language: {show.language}</p>
 						<PreviousEpisode href={show._links.previousepisode.href} />
