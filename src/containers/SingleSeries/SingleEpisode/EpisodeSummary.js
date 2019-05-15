@@ -1,7 +1,7 @@
 import React from 'react';
-import './index.css';
+import '../index.css';
 
-class PreviousEpisode extends React.Component {
+class EpisodeSummary extends React.Component {
 	state = {
 		information: null
 	};
@@ -18,7 +18,7 @@ class PreviousEpisode extends React.Component {
 		return (
 			<div>
 				<hr />
-				<h4>Previsous Episode:</h4>
+				<h4>{this.props.pointInTime} Episode:</h4>
 				{information && (
 					<div className="prevEpisode">
 						<p>{information.name || 'n/a'}</p>
@@ -27,7 +27,7 @@ class PreviousEpisode extends React.Component {
 						</p>
 						<p>AirTime: {information.airtime || 'n/a'}</p>
 						<div>
-							Plot: <span dangerouslySetInnerHTML={{ __html: information.summary } || 'n/a'} />
+							<span dangerouslySetInnerHTML={{ __html: information.summary } || 'n/a'} />
 						</div>
 					</div>
 				)}
@@ -36,4 +36,4 @@ class PreviousEpisode extends React.Component {
 	}
 }
 
-export default PreviousEpisode;
+export default EpisodeSummary;
