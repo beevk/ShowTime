@@ -50,3 +50,12 @@
 .inputSection {
 	margin-top: 25px;
 }
+
+.footer {
+	background: #282c34;
+	color: white;
+}
+
+.center {
+	text-align: center;
+}

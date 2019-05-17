@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import Loader from '../../components/Loader';
-import EpisodeSummary from './SingleEpisode/EpisodeSummary';
-
-const ListEpisodes = (props) => {
-	console.log(props.item);
-	return (
-		// 	// /shows/:id/episodebynumber?season=:season&number=:number
-		// 	// <Link to={`/series/${series.show.id}`}>
-		<li>{props.item.name}</li>
-	);
-};
+import EpisodeSummary from './EpisodeList/Episode/EpisodeSummary';
+import RecentEpisodes from './EpisodeList/RecentEpisodes';
+import LeadCasts from './CastList/LeadCasts';
 
 class SingleSeries extends Component {
 	state = {
@@ -18,7 +11,7 @@ class SingleSeries extends Component {
 
 	componentDidMount() {
 		const { id } = this.props.match.params;
-		fetch(`http://api.tvmaze.com/shows/${id}?embed=episodes`)
+		fetch(`http://api.tvmaze.com/shows/${id}?embed[]=episodes&embed[]=cast`)
 			.then((response) => response.json())
 			.then((json) => this.setState({ show: json }));
 	}
@@ -47,14 +40,10 @@ class SingleSeries extends Component {
 						{show._links.nextepisode && (
 							<EpisodeSummary href={show._links.nextepisode.href} pointInTime="Next" />
 						)}
-						<section>
-							<h2>Previously Aired Episodes: </h2>
-							<ul>
-								{show._embedded.episodes.slice(-10, -1).reverse().map((episode) => {
-									return <ListEpisodes item={episode} />;
-								})}
-							</ul>
-						</section>
+						<h2>Previously Aired Episodes: </h2>
+						<RecentEpisodes episodes={show._embedded.episodes} id={show.id} recent="true" />;
+						<h2>Casts:</h2>
+						<LeadCasts casts={show._embedded.cast} showId={show.id} />
 					</div>
 				)}
 			</div>
