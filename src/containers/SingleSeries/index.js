@@ -18,6 +18,7 @@ class SingleSeries extends Component {
 
 	render() {
 		const { show } = this.state;
+
 		return (
 			<div>
 				{show === null && <Loader />}
@@ -41,7 +42,7 @@ class SingleSeries extends Component {
 							<EpisodeSummary href={show._links.nextepisode.href} pointInTime="Next" />
 						)}
 						<h2>Previously Aired Episodes: </h2>
-						<RecentEpisodes episodes={show._embedded.episodes} id={show.id} recent="true" />;
+						<RecentEpisodes episodes={show._embedded.episodes} id={show.id} recent="true" />
 						<h2>Casts:</h2>
 						<LeadCasts casts={show._embedded.cast} showId={show.id} />
 					</div>

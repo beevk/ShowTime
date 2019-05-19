@@ -20,7 +20,11 @@ const RecentEpisodes = (props) => {
 	return (
 		<div>
 			{props.episodes.slice(-10, -1).reverse().map((ep, i) => {
-				return <EpisodeListItem episode={ep} key={i} id={props.id} />;
+				return (
+					<div key={i}>
+						<EpisodeListItem episode={ep} id={props.id} />
+					</div>
+				);
 			})}
 			<Link to={`/series/${props.id}/episodes`}>
 				<span>See all...</span>
