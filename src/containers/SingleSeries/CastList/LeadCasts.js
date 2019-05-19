@@ -3,9 +3,11 @@ import { NavLink } from 'react-router-dom';
 import '../index.css';
 
 const CastListItem = ({ cast }) => {
+	const imgSrc = cast.person.image ? cast.person.image.medium : 'https://loremflickr.com/320/240/funny';
+
 	return (
 		<div>
-			<img src={cast.character.image.medium} alt="actor" />
+			<img src={imgSrc} alt="actor" />
 			<NavLink to={`/people/${cast.person.id}`}>
 				<h4 className="noMargin"> {cast.person.name} </h4>
 			</NavLink>
@@ -22,7 +24,7 @@ const LeadCasts = (props) => {
 			{props.casts.length > 4 && (
 				<div>
 					<NavLink to={`/series/${props.showId}/cast`}>
-						<p>See all...</p>
+						<p>See all cast & crew...</p>
 					</NavLink>
 				</div>
 			)}

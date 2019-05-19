@@ -4,7 +4,7 @@ import { EpisodeListItem, SingleEpisode } from './Episode';
 class EpisodeList extends React.Component {
 	state = {
 		episodes: null,
-		singleEpisode: false
+		isSingleEpisode: false
 	};
 
 	componentDidMount() {
@@ -12,34 +12,49 @@ class EpisodeList extends React.Component {
 		const params = new URLSearchParams(this.props.location.search);
 		const season = params.get('season');
 		const episode = params.get('episode');
-		console.log(id, season, episode);
 
 		if (season && episode) {
 			fetch(`http://api.tvmaze.com/shows/${id}/episodebynumber?season=${season}&number=${episode}`)
 				.then((response) => response.json())
-				.then((json) =>
+				.then((json) => {
 					this.setState({
 						episodes: json,
-						singleEpisode: true
-					})
-				);
+						isSingleEpisode: true
+					});
+				});
 		} else {
 			fetch(`http://api.tvmaze.com/shows/${id}/episodes`).then((response) => response.json()).then((json) => {
-				this.setState({ episodes: json });
+				const episodesGroupedBySeason = json.reduce((newGroup, ep) => {
+					newGroup[ep.season] = (newGroup[ep.season] || []).concat(ep);
+					return newGroup;
+				}, []);
+				this.setState({ episodes: episodesGroupedBySeason });
 			});
 		}
 	}
 
+	changeState(s, e) {
+		this.setState({
+			episodes: s[e],
+			isSingleEpisode: true
+		});
+	}
+
 	render() {
-		const { episodes, singleEpisode } = this.state;
+		const { episodes, isSingleEpisode } = this.state;
 		return (
 			<div>
 				{episodes &&
-					!singleEpisode &&
-					episodes.reverse().map((episode, i) => {
-						return <EpisodeListItem episode={episode} key={i} />;
+					!isSingleEpisode &&
+					episodes.reverse().map((season, i) => {
+						return (
+							<div className="season" key={i} onClick={this.changeState.bind(this, season, i)}>
+								<h3>Season {season[i].season}</h3>
+								<EpisodeListItem episodes={season} seasonId={this.props.match.params.id} />
+							</div>
+						);
 					})}
-				{episodes && singleEpisode && <SingleEpisode>Single Episode</SingleEpisode>}
+				{episodes && isSingleEpisode && <SingleEpisode episode={episodes}>Single Episode </SingleEpisode>}
 			</div>
 		);
 	}
