@@ -18,14 +18,15 @@ class SingleSeries extends Component {
 
 	render() {
 		const { show } = this.state;
-
+		const imageSrc =
+			show && show.image ? show.image.medium : 'https://via.placeholder.com/200?text=Image+Not+Found';
 		return (
 			<div>
 				{show === null && <Loader />}
 				{show != null && (
 					<div>
 						<p>
-							<img alt="Show" src={show.image.medium} />
+							<img alt="Show" src={imageSrc} />
 						</p>
 						<h2>{show.name}</h2>
 						<p>Premiered: {show.premiered || 'n/a'}</p>

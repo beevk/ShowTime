@@ -3,7 +3,9 @@ import { NavLink } from 'react-router-dom';
 import '../index.css';
 
 const CastListItem = ({ cast }) => {
-	const imgSrc = cast.person.image ? cast.person.image.medium : 'https://loremflickr.com/320/240/funny';
+	const imgSrc = cast.person.image
+		? cast.person.image.medium
+		: 'https://via.placeholder.com/200?text=Image+Not+Found';
 
 	return (
 		<div>

@@ -23,7 +23,9 @@ class CastList extends React.Component {
 					cast.map((member, i) => {
 						const imageSrc = member.character.image
 							? member.character.image.medium
-							: member.person.image ? member.person.image.medium : '';
+							: member.person.image
+								? member.person.image.medium
+								: 'https://via.placeholder.com/200?text=Image+Not+Found';
 						return (
 							<Link to={`/people/${member.person.id}`} key={i}>
 								<div>

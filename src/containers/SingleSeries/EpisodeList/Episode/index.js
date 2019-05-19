@@ -22,7 +22,7 @@ const EpisodeListItem = (props) => {
 
 const SingleEpisode = (props) => {
 	const episode = props.episode;
-	const imgSrc = episode.image ? episode.image.medium : 'https://loremflickr.com/320/240/funny';
+	const imgSrc = episode.image ? episode.image.medium : 'https://via.placeholder.com/200?text=Image+Not+Found';
 
 	const date = new Date(episode.airstamp);
 	return (
