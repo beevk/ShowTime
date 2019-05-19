@@ -44,6 +44,7 @@ class EpisodeList extends React.Component {
 		const { episodes, isSingleEpisode } = this.state;
 		return (
 			<div>
+				{episodes && isSingleEpisode && <SingleEpisode episode={episodes}>Single Episode </SingleEpisode>}
 				{episodes &&
 					!isSingleEpisode &&
 					episodes.reverse().map((season, i) => {
@@ -54,7 +55,6 @@ class EpisodeList extends React.Component {
 							</div>
 						);
 					})}
-				{episodes && isSingleEpisode && <SingleEpisode episode={episodes}>Single Episode </SingleEpisode>}
 			</div>
 		);
 	}
