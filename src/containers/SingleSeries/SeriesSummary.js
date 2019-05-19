@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Summary extends Component {
+class SeriesSummary extends Component {
 	state = {
 		information: null
 	};
 
 	componentDidMount(props) {
 		const href = this.props.href;
-		// console.log(href);
 		fetch(href).then((response) => response.json()).then((json) => {
 			this.setState({ information: json });
 		});
@@ -16,7 +15,6 @@ class Summary extends Component {
 
 	render() {
 		const { information } = this.state;
-		console.log(information);
 		return (
 			<div>
 				{information && (
@@ -31,4 +29,4 @@ class Summary extends Component {
 	}
 }
 
-export default Summary;
+export default SeriesSummary;

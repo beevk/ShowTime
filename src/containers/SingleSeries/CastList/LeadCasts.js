@@ -24,7 +24,7 @@ const LeadCasts = (props) => {
 			{props.casts.length > 4 && (
 				<div>
 					<NavLink to={`/series/${props.showId}/cast`}>
-						<p>See all cast & crew...</p>
+						<p>See all cast...</p>
 					</NavLink>
 				</div>
 			)}

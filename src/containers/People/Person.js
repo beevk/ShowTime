@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SeriesSummary from '../SingleSeries/Summary';
+import SeriesSummary from '../SingleSeries/SeriesSummary';
 
 class Person extends Component {
 	state = {
@@ -27,11 +27,11 @@ class Person extends Component {
 						<h3>{info.name}</h3>
 						<p>
 							<strong> Birthdate: </strong>
-							{info.birthday}
+							{info.birthday || 'n/a'}
 						</p>
 						<p>
 							<strong>Country: </strong>
-							{info.country.name}
+							{info.country ? info.country.name : 'n/a'}
 						</p>
 						{info.deathday && (
 							<p>
