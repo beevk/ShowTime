@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PersonList from '../../components/PersonList';
 import Intro from '../../components/Intro';
 import Loader from '../../components/Loader';
+import { DebounceInput } from 'react-debounce-input';
 
 class People extends Component {
 	state = {
@@ -25,9 +26,15 @@ class People extends Component {
 			<div className="main">
 				<Intro message="Some people just need a High-Five!" />
 				<div className="search">
-					<div className="inputSection">
-						<input value={personName} type="text" onChange={this.onPersonsInputChange} />
-					</div>
+					<DebounceInput
+						className="inputSection"
+						minLength={2}
+						debounceTimeout={500}
+						element="input"
+						onChange={this.onPersonsInputChange}
+						value={personName}
+					/>
+
 					{persons.length === 0 &&
 					personName.trim() === '' && (
 						<p style={{ marginTop: 20 }}>Please enter the person name into the input.</p>
