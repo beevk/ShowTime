@@ -8,11 +8,13 @@ import './App.css';
 class App extends Component {
 	render() {
 		return (
+			// <div className="appWrapper">
 			<div className="App">
 				<Header />
 				<Main />
 				<Footer />
 			</div>
+			// </div>
 		);
 	}
 }

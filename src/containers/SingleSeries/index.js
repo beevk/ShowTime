@@ -21,7 +21,7 @@ class SingleSeries extends Component {
 		const imageSrc =
 			show && show.image ? show.image.medium : 'https://via.placeholder.com/200?text=Image+Not+Found';
 		return (
-			<div>
+			<div className="main">
 				{show === null && <Loader />}
 				{show != null && (
 					<div>

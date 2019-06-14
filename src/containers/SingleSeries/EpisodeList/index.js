@@ -43,7 +43,7 @@ class EpisodeList extends React.Component {
 	render() {
 		const { episodes, isSingleEpisode } = this.state;
 		return (
-			<div>
+			<div className="main">
 				{console.log(episodes)}
 				{episodes && isSingleEpisode && <SingleEpisode episode={episodes}>Single Episode </SingleEpisode>}
 				{episodes &&

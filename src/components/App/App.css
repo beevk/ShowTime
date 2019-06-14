@@ -1,59 +1,27 @@
+/* Generic stuffs 
+-----------------------------------*/
+html {
+	height: 100%;
+}
+
+body,
+#root {
+	overflow: auto;
+}
+
 .App {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 	text-align: center;
 }
 
-.App-logo {
-	animation: App-logo-spin infinite 20s linear;
-	height: 20vmin;
-	pointer-events: none;
-}
-
-.App-header {
-	background-color: #282c34;
-	min-height: 20vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
-
-.App-link {
-	color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
-}
-
-/* My CSS */
-.firstComponent {
-	background-color: #34d1bf;
-	padding: 10px;
-	margin-top: 0;
-	margin-bottom: 1px;
-	min-height: 15vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
-
-.inputSection {
-	margin-top: 25px;
-}
-
-.footer {
-	background: #282c34;
-	color: white;
+.appWrapper {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 960px;
+	padding-right: 10px;
+	padding-left: 10px;
 }
 
 .center {
@@ -62,4 +30,58 @@
 
 .textInWhite {
 	color: white;
+}
+
+/* Header stuffs
+----------------------------------- */
+
+.header {
+	flex: none;
+}
+
+/* Footer Stuffs
+----------------------------- */
+.footer {
+	background: #282c34;
+	color: white;
+	flex: none;
+	margin-top: 40px;
+}
+
+/* Main stuffs
+-------------------- */
+
+.main {
+	flex: 1 0 auto;
+}
+
+.search {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.search input {
+	width: 100%;
+	line-height: 50px;
+}
+
+.seriesList li:nth-of-type(odd) {
+	background-color: #e5f2f4;
+}
+
+.description {
+	background: linear-gradient(rgba(66, 129, 164, 0.9), rgba(66, 129, 164, 0.9)), url('../../assets/cover.png') center;
+	padding: 10px;
+	min-height: 30vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+}
+
+.inputSection {
+	margin-top: 25px;
+	width: 98%;
 }

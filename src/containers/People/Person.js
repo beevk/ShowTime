@@ -20,7 +20,7 @@ class Person extends Component {
 	render() {
 		const { info } = this.state;
 		return (
-			<div>
+			<div className="main">
 				{info && (
 					<div>
 						<img src={info.image.medium} alt={info.name} />

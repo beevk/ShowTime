@@ -18,7 +18,7 @@ class CastList extends React.Component {
 		const { cast } = this.state;
 
 		return (
-			<div>
+			<div className="main">
 				{cast &&
 					cast.map((member, i) => {
 						const imageSrc = member.character.image

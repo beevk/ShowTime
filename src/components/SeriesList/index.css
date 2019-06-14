@@ -1,17 +1,28 @@
 .seriesList {
 	list-style-type: none;
 	padding: 0;
+	max-height: 450px;
+	overflow: auto;
 }
 
 .searchResult {
-	border-bottom: 3px solid #282c34;
-	text-decoration: none;
+	display: flex;
+	margin-top: 10px;
 	color: black;
 	cursor: pointer;
+}
+
+.searchResult .resultItem {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-left: 5px;
 }
 
 .mono {
 	color: #8e95a5;
 	font-family: Roboto, sans-serif;
-	font-size: .9rem;
+	font-size: .8rem;
+	text-decoration: none;
 }

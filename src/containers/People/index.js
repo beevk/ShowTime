@@ -22,18 +22,22 @@ class People extends Component {
 		const { persons, personName, isFetching } = this.state;
 
 		return (
-			<div>
-				<Intro message="Here You can look for all of your favourite Actors!" />
-				<div className="inputSection">
-					<input value={personName} type="text" onChange={this.onPersonsInputChange} />
+			<div className="main">
+				<Intro message="Some people just need a High-Five!" />
+				<div className="search">
+					<div className="inputSection">
+						<input value={personName} type="text" onChange={this.onPersonsInputChange} />
+					</div>
+					{persons.length === 0 &&
+					personName.trim() === '' && (
+						<p style={{ marginTop: 20 }}>Please enter the person name into the input.</p>
+					)}
+					{!isFetching &&
+					persons.length === 0 &&
+					personName.trim() !== '' && <p>No person Found with matching name!</p>}
+					{isFetching && <Loader />}
+					{!isFetching && <PersonList list={this.state.persons} />}
 				</div>
-				{persons.length === 0 &&
-				personName.trim() === '' && <p>Please enter the persons name into the input.</p>}
-				{!isFetching &&
-				persons.length === 0 &&
-				personName.trim() !== '' && <p>No person Found with matching name!</p>}
-				{isFetching && <Loader />}
-				{!isFetching && <PersonList list={this.state.persons} />}
 			</div>
 		);
 	}

@@ -1,24 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import '../App/App.css';
+import { NavLink } from 'react-router-dom';
+import './header.css';
 
 const Header = () => {
 	return (
-		<header className="App-header">
-			<Link to="/" className="textInWhite">
-				Tv Time
-			</Link>
-			<h1 className="App-title">TV Series List</h1>
-			<nav>
-				<Link to="/" className="textInWhite">
-					{' '}
-					Series |{' '}
-				</Link>
-				<Link to="/people" className="textInWhite">
-					{' '}
-					People{' '}
-				</Link>
-			</nav>
+		<header className="header">
+			<div className="headerWrapper">
+				<div className="logo">
+					<NavLink to="/">
+						<p className="App-title">TvTime</p>
+					</NavLink>
+				</div>
+				<nav>
+					<NavLink to="/" exact activeClassName="activeNow" className="navItem">
+						<span> Series </span>
+					</NavLink>
+					<NavLink to="/people" activeClassName="activeNow" className="navItem">
+						<span> People </span>
+					</NavLink>
+				</nav>
+			</div>
 		</header>
 	);
 };
