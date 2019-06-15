@@ -164,6 +164,7 @@ tbody tr:hover {
 	margin-bottom: 10px;
 }
 
+/* Mobile Phones */
 @media (min-width: 320px) and (max-width: 480px) {
 	.wiki {
 		align-self: stretch;
@@ -177,5 +178,24 @@ tbody tr:hover {
 
 	.search {
 		max-width: 96%;
+	}
+}
+
+/* Mobile Phones in Landscape, Tablets */
+@media (min-width: 481px) and (max-width: 1024px) {
+	.seriesInfo {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
+
+	.seriesSummary {
+		order: 2;
+		max-width: 100%;
+		margin-top: 20px;
+	}
+
+	.wiki {
+		box-shadow: none;
 	}
 }
