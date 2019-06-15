@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../index.css';
+import { Link } from 'react-router-dom';
 
 class EpisodeSummary extends React.Component {
 	state = {
@@ -15,19 +16,27 @@ class EpisodeSummary extends React.Component {
 
 	render() {
 		const { information } = this.state;
+		const { id } = this.props;
+
 		return (
-			<div>
-				<hr />
-				<h4>{this.props.pointInTime} Episode:</h4>
+			<div className="currentEpisodeSummary">
+				<h3>{this.props.pointInTime} Episode</h3>
 				{information && (
-					<div className="prevEpisode">
-						<p>{information.name || 'n/a'}</p>
-						<p>
-							S{information.season}e{information.number}
-						</p>
-						<p>AirTime: {information.airtime || 'n/a'}</p>
+					<div className="epInfo">
+						<Link to={`/series/${id}/episodes?season=${information.season}&episode=${information.number}`}>
+							<span>
+								{information.name || ''}
+								<span className="highlight">
+									s{information.season}e{information.number}
+								</span>
+							</span>
+						</Link>
+						<span className="mono">{information.airdate || ''}</span>
 						<div>
-							<span dangerouslySetInnerHTML={{ __html: information.summary } || 'n/a'} />
+							<span
+								className="seriesSummary"
+								dangerouslySetInnerHTML={{ __html: information.summary } || 'n/a'}
+							/>
 						</div>
 					</div>
 				)}

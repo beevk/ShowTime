@@ -5,3 +5,144 @@
 .noMargin {
 	margin: 0;
 }
+
+.seriesContainer {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	/* align-items: space-around; */
+	max-width: 1200px;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+.seriesContainer a {
+	text-decoration: none;
+	color: #4281a4;
+}
+
+.seriesContainer h1 {
+	font-size: 2.8rem;
+	font-weight: 300;
+	align-self: flex-start;
+	margin-top: 40px;
+}
+
+.seriesInfo {
+	display: flex;
+	margin: 20px auto;
+	line-height: 1.5rem;
+}
+
+.seriesInfo img {
+	flex: none;
+	height: 290px;
+}
+
+.seriesSummary {
+	max-width: 50vw;
+	text-align: justify;
+	margin: 0 15px;
+}
+
+.officialLink {
+	margin-top: 15px;
+}
+
+.currentEpisodes {
+	display: flex;
+	flex: none;
+	justify-content: space-around;
+	min-width: 200px;
+}
+
+.currentEpisodeSummary {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	background-color: #fbfcff;
+	box-shadow: 1px 1px 2px #4281a4;
+	padding: 0 20px;
+	min-width: 300px;
+	margin-right: 1px;
+}
+
+.recentEpisodes h3,
+.impCasts h3,
+.currentEpisodeSummary h3 {
+	font-size: 2rem;
+	font-weight: 300;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.recentEpisodes,
+.impCasts {
+	margin-top: 40px;
+	align-self: stretch;
+}
+
+.epInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.epInfo span span {
+	margin-left: 4px;
+}
+
+.seeAll {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 10px;
+}
+
+.seeAll span {
+	border: 1px solid #4281a4;
+	padding: 5px;
+	border-radius: 8px;
+}
+
+.seeAll span:hover {
+	background-color: #4281a4;
+	color: #fff;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.seriesContainer {
+		max-width: 480px;
+		display: flex;
+	}
+
+	.seriesContainer h1 {
+		margin-top: 15px;
+		font-size: 2.4rem;
+	}
+
+	.seriesInfo {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		max-width: 400px;
+	}
+
+	.seriesSummary {
+		max-width: 100%;
+	}
+
+	.seriesInfo img {
+		width: 100%;
+		height: auto;
+		margin-bottom: 10px;
+	}
+
+	.currentEpisodes {
+		flex-wrap: wrap;
+	}
+
+	.currentEpisodeSummary {
+		margin-top: 10px;
+	}
+}

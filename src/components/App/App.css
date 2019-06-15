@@ -32,6 +32,67 @@ body,
 	color: white;
 }
 
+.highlight {
+	background: #34d1bf;
+	color: #fff;
+	padding: 0px 5px;
+	border-radius: 3px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,
+td {
+	text-align: left;
+	padding: 8px;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+	background-color: #d0ccd0;
+}
+
+.cards {
+	display: flex;
+	justify-content: space-evenly;
+	min-width: 200px;
+	flex-wrap: wrap;
+	align-content: center;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	/* align-items: center; */
+	/* border: 1px solid; */
+	box-shadow: 2px 0px 4px #4281a4;
+}
+
+.card:hover {
+	box-shadow: 4px 2px 4px #4281a4;
+}
+
+.cardTitle {
+	text-align: left;
+	background-color: rgba(66, 129, 164, .1);
+	color: white;
+	padding: 5px 10px;
+	width: 100%;
+}
+
+.cardDescription {
+	text-align: left;
+	font-size: 12px;
+	text-align: center;
+}
+
 /* Header stuffs
 ----------------------------------- */
 
@@ -84,4 +145,37 @@ body,
 .inputSection {
 	margin-top: 25px;
 	width: 98%;
+}
+
+.wiki {
+	display: flex;
+	flex-direction: column;
+	flex: none;
+	text-align: left;
+	font-size: .95rem;
+	background-color: #fbfcff;
+	padding: 10px 20px;
+	box-shadow: 5px 5px 10px #4281a4;
+	line-height: 1.7rem;
+}
+
+.wiki h2 {
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.wiki {
+		align-self: stretch;
+		margin-top: 20px;
+		box-shadow: 1px 1px 2px #4281a4;
+	}
+
+	.card {
+		margin-bottom: 10px;
+	}
+
+	.search {
+		max-width: 96%;
+	}
 }

@@ -8,12 +8,12 @@ const CastListItem = ({ cast }) => {
 		: 'https://via.placeholder.com/200?text=Image+Not+Found';
 
 	return (
-		<div>
+		<div className="card">
 			<img src={imgSrc} alt="actor" />
-			<NavLink to={`/people/${cast.person.id}`}>
+			<NavLink className="cardTitle" to={`/people/${cast.person.id}`}>
 				<h4 className="noMargin"> {cast.person.name} </h4>
+				<span className="cardDescription mono"> as {cast.character.name} </span>
 			</NavLink>
-			<p className="noMargin"> as {cast.character.name} </p>
 		</div>
 	);
 };
@@ -21,16 +21,18 @@ const CastListItem = ({ cast }) => {
 const LeadCasts = (props) => {
 	const topCasts = props.casts.length > 4 ? props.casts.slice(0, 4) : props.casts;
 	return (
-		<div>
-			{topCasts.map((cast) => <CastListItem cast={cast} key={cast.character.id} />)}
+		<React.Fragment>
+			<div className="cards">{topCasts.map((cast) => <CastListItem cast={cast} key={cast.character.id} />)}</div>
 			{props.casts.length > 4 && (
 				<div>
 					<NavLink to={`/series/${props.showId}/cast`}>
-						<p>See all cast...</p>
+						<span className="seeAll">
+							<span>View all Cast >></span>
+						</span>
 					</NavLink>
 				</div>
 			)}
-		</div>
+		</React.Fragment>
 	);
 };
 

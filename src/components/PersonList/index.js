@@ -14,11 +14,11 @@ const PersonListItem = ({ item }) => {
 		borderRadius: 2
 	};
 
-	const info = {
-		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'center'
-	};
+	// const info = {
+	// 	display: 'flex',
+	// 	flexDirection: 'row',
+	// 	justifyContent: 'center'
+	// };
 
 	console.log(item);
 

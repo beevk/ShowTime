@@ -25,6 +25,7 @@ a button {
 	justify-content: space-around;
 	flex-wrap: wrap;
 	align-content: space-between;
+	align-items: center;
 }
 
 .left {

@@ -3,13 +3,6 @@ import './index.css';
 import { Link } from 'react-router-dom';
 // import { NONAME } from 'dns';
 
-const ratingStyle = {
-	background: '#34D1BF',
-	color: '#fff',
-	padding: '0px 5px',
-	borderRadius: 2
-};
-
 const premieredStyle = {
 	marginLeft: 5,
 	fontWeight: 'bold'
@@ -27,7 +20,7 @@ const SeriesListItem = ({ series }) => {
 					<div className="resultItem">
 						{series.show.name}
 						<span className="mono">
-							<span style={ratingStyle}> {series.show.rating.average || 'n/a'} </span>
+							<span className="highlight"> {series.show.rating.average || 'n/a'} </span>
 							<span style={premieredStyle}> Premiered: </span>
 							<span style={{ color: '#34D1BF' }}> {series.show.premiered || 'n/a'} </span>
 						</span>

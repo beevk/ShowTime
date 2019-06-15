@@ -3,31 +3,46 @@ import { Link } from 'react-router-dom';
 
 const EpisodeListItem = ({ episode, id }) => {
 	return (
-		<div>
-			<Link to={`/series/${id}/episodes?season=${episode.season}&episode=${episode.number}`}>
-				<div>
-					<span> s{episode.season}</span>
-					<span>e{episode.number} - </span>
+		<tr>
+			<td>
+				{' '}
+				s{episode.season}e{episode.number}{' '}
+			</td>
+			<td>
+				<Link to={`/series/${id}/episodes?season=${episode.season}&episode=${episode.number}`}>
 					{episode.name}
-					<span> Aired on: {episode.airdate} </span>
-				</div>
-			</Link>
-		</div>
+				</Link>
+			</td>
+			<td>{episode.airdate} </td>
+		</tr>
 	);
 };
 
 const RecentEpisodes = (props) => {
 	return (
-		<div>
-			{props.episodes.slice(-10, -1).reverse().map((ep, i) => {
-				return (
-					<div key={i}>
-						<EpisodeListItem episode={ep} id={props.id} />
-					</div>
-				);
-			})}
+		<div style={{ overflowX: 'auto' }}>
+			<table>
+				<thead>
+					<tr>
+						<th>Episode</th>
+						<th>Episode Name</th>
+						<th>AirDate</th>
+					</tr>
+				</thead>
+				<tbody>
+					{props.episodes.slice(-5, -1).reverse().map((ep, i) => {
+						return (
+							<React.Fragment key={i}>
+								<EpisodeListItem episode={ep} id={props.id} />
+							</React.Fragment>
+						);
+					})}
+				</tbody>
+			</table>
 			<Link to={`/series/${props.id}/episodes`}>
-				<span>See all...</span>
+				<span className="seeAll">
+					<span>View Full Episodes List >></span>
+				</span>
 			</Link>
 		</div>
 	);
