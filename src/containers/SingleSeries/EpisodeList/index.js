@@ -44,7 +44,6 @@ class EpisodeList extends React.Component {
 		const { episodes, isSingleEpisode } = this.state;
 		return (
 			<div className="main">
-				{console.log(episodes)}
 				{episodes && isSingleEpisode && <SingleEpisode episode={episodes}>Single Episode </SingleEpisode>}
 				{episodes &&
 					!isSingleEpisode &&

@@ -15,16 +15,29 @@ class SeriesSummary extends Component {
 
 	render() {
 		const { information } = this.state;
+		const imageSrc = information
+			? information.image ? information.image.medium : 'https://via.placeholder.com/200?text=Image+Not+Found'
+			: '';
+
 		return (
-			<div>
+			<React.Fragment>
 				{information && (
-					<Link to={`/series/${information.id}`}>
-						{information.image && <img src={information.image.medium} alt={information.name} />}
-						<h4>{information.name}</h4>
-						<p>{information.rating.average}</p>
-					</Link>
+					<div className="card">
+						<img src={imageSrc} alt={information.name} />
+						<Link className="cardTitle" to={`/series/${information.id}`}>
+							<h4>{information.name}</h4>
+							<span className="cardDescription">
+								{information.rating.average ? (
+									<span className="highlight">{information.rating.average}</span>
+								) : (
+									''
+								)}
+								<span style={{ marginLeft: 5 }}>{information.genres.join(', ')}</span>
+							</span>
+						</Link>
+					</div>
 				)}
-			</div>
+			</React.Fragment>
 		);
 	}
 }

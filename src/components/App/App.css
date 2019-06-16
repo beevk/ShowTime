@@ -199,3 +199,9 @@ tbody tr:hover {
 		box-shadow: none;
 	}
 }
+
+@media (min-width: 670px) and (max-width: 1024px) {
+	.card:last-child {
+		display: none;
+	}
+}

@@ -20,8 +20,6 @@ const PersonListItem = ({ item }) => {
 	// 	justifyContent: 'center'
 	// };
 
-	console.log(item);
-
 	const birthdaySVG = (
 		<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 26 26" aria-labelledby="title">
 			<title>Birthday</title>

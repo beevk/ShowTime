@@ -19,30 +19,48 @@ class Person extends Component {
 	}
 	render() {
 		const { info } = this.state;
+		const imageSrc =
+			info && info.image ? info.image.medium : 'https://via.placeholder.com/200?text=Image+Not+Found';
+
 		return (
 			<div className="main">
 				{info && (
-					<div>
-						<img src={info.image.medium} alt={info.name} />
-						<h3>{info.name}</h3>
-						<p>
-							<strong> Birthdate: </strong>
-							{info.birthday || 'n/a'}
-						</p>
-						<p>
-							<strong>Country: </strong>
-							{info.country ? info.country.name : 'n/a'}
-						</p>
-						{info.deathday && (
-							<p>
-								<strong>Died on</strong>
-								{info.deathday}
-							</p>
-						)}
-						<h3>Also Known for</h3>
-						{info._embedded.castcredits.map((item, i) => {
-							return <SeriesSummary href={item._links.show.href} key={i} />;
-						})}
+					<div className="personContainer">
+						<h1>{info.name}</h1>
+						<div className="personInfo">
+							<img src={imageSrc} alt={info.name} />
+							<div className="wiki">
+								<h2>Basic Info.</h2>
+								<span>
+									<b> Name: </b>
+									{info.name || 'n/a'}
+								</span>
+								<span>
+									<b> Birthdate: </b>
+									{info.birthday || 'n/a'}
+								</span>
+
+								<span>
+									<b>Country: </b>
+									{info.country ? info.country.name : 'n/a'}
+								</span>
+
+								{info.deathday && (
+									<span>
+										<b>Died on</b>
+										{info.deathday}
+									</span>
+								)}
+							</div>
+						</div>
+						<div className="castCredit">
+							{info._embedded.castcredits.length ? <h3>Also Known for</h3> : ''}
+							<div className="cards">
+								{info._embedded.castcredits.map((item, i) => {
+									return <SeriesSummary href={item._links.show.href} key={i} />;
+								})}
+							</div>
+						</div>
 					</div>
 				)}
 			</div>
