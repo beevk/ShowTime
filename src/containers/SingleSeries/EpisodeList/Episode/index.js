@@ -5,42 +5,77 @@ const EpisodeListItem = (props) => {
 	const episodes = props.episodes;
 
 	return (
-		<div>
-			{episodes.map((episode, i) => {
-				return (
-					<Link
-						to={`/series/${props.seasonId}/episodes?season=${episode.season}&episode=${episode.number}`}
-						key={i}
-					>
-						<div> {episode.name} </div>
-					</Link>
-				);
-			})}
+		<div style={{ overflowX: 'auto' }}>
+			<table>
+				<thead>
+					<tr>
+						<th>Episode</th>
+						<th>Episode Name</th>
+						<th>AirDate</th>
+					</tr>
+				</thead>
+				<tbody>
+					{episodes.map((episode, i) => {
+						return (
+							<React.Fragment key={i}>
+								<tr>
+									<td>
+										s{episode.season}e{episode.number}
+									</td>
+									<td>
+										<Link
+											to={`/series/${props.seasonId}/episode?season=${episode.season}&episode=${episode.number}`}
+										>
+											{episode.name}
+										</Link>
+									</td>
+									<td>{episode.airdate} </td>
+								</tr>
+							</React.Fragment>
+						);
+					})}
+				</tbody>
+			</table>
 		</div>
 	);
 };
 
-const SingleEpisode = (props) => {
+const DisplayEpisode = (props) => {
 	const episode = props.episode;
 	const imgSrc = episode.image ? episode.image.medium : 'https://via.placeholder.com/200?text=Image+Not+Found';
 
+	console.log(episode);
+
 	const date = new Date(episode.airstamp);
 	return (
-		<div>
-			<p>
-				<img alt="episode" src={imgSrc} />
-			</p>
+		<div className="seriesContainer">
 			<h2>{episode.name}</h2>
-			<p>Season: {episode.season}</p>
-			<p>Episode: {episode.number}</p>
-			<p>AirDate: {date.toLocaleDateString() || 'n/a'}</p>
-			<p>AirTime: {date.toLocaleTimeString() || 'n/a'}</p>
-			<p>Runtime: {episode.runtime || 'n/a'} mins.</p>
-			<div>
-				<span dangerouslySetInnerHTML={{ __html: episode.summary } || 'n/a'} />
+			<div className="seriesInfo">
+				<img alt="episode" src={imgSrc} />
+				<div className="seriesSummary">
+					<span dangerouslySetInnerHTML={{ __html: episode.summary } || 'n/a'} />
+				</div>
+				<div className="wiki">
+					<h2>Episode Info.</h2>
+					<span>
+						<b>Season:</b> {episode.season}
+					</span>
+					<span>
+						<b>Episode:</b> {episode.number}
+					</span>
+					<span>
+						<b>AirDate:</b> {date.toLocaleDateString() || 'n/a'}
+					</span>
+					<span>
+						<b>AirTime:</b> {date.toLocaleTimeString() || 'n/a'}
+					</span>
+					<span>
+						<b>Runtime:</b> {episode.runtime || 'n/a'} mins.
+					</span>
+				</div>
 			</div>
 		</div>
 	);
 };
 
-export { SingleEpisode, EpisodeListItem };
+export { DisplayEpisode, EpisodeListItem };

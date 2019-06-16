@@ -19,23 +19,28 @@ class CastList extends React.Component {
 
 		return (
 			<div className="main">
-				{cast &&
-					cast.map((member, i) => {
-						const imageSrc = member.character.image
-							? member.character.image.medium
-							: member.person.image
-								? member.person.image.medium
-								: 'https://via.placeholder.com/200?text=Image+Not+Found';
-						return (
-							<Link to={`/people/${member.person.id}`} key={i}>
-								<div>
-									<img src={imageSrc} alt={member.person.name} />
-									<h4>{member.person.name}</h4>
-									<p>as {member.character.name}</p>
-								</div>
-							</Link>
-						);
-					})}
+				<div className="castWrapper">
+					<h1>Cast</h1>
+					<div className="cards">
+						{cast &&
+							cast.map((member, i) => {
+								const imageSrc = member.character.image
+									? member.character.image.medium
+									: member.person.image
+										? member.person.image.medium
+										: 'https://via.placeholder.com/200?text=Image+Not+Found';
+								return (
+									<div className="card">
+										<img src={imageSrc} alt={member.person.name} />
+										<Link className="cardTitle" to={`/people/${member.person.id}`} key={i}>
+											<h4>{member.person.name}</h4>
+											<span className="cardDescription mono">as {member.character.name}</span>
+										</Link>
+									</div>
+								);
+							})}
+					</div>
+				</div>
 			</div>
 		);
 	}

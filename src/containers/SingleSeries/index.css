@@ -7,7 +7,8 @@
 }
 
 .seriesContainer,
-.personContainer {
+.personContainer,
+.castWrapper {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -19,13 +20,17 @@
 }
 
 .seriesContainer a,
-.personContainer a {
+.personContainer a,
+.episodesWrapper a,
+.castWrapper a {
 	text-decoration: none;
 	color: #4281a4;
 }
 
 .seriesContainer h1,
-.personContainer h1 {
+.personContainer h1,
+.episodesWrapper h1,
+.castWrapper h1 {
 	font-size: 2.8rem;
 	font-weight: 300;
 	align-self: flex-start;
@@ -86,7 +91,8 @@
 .recentEpisodes h3,
 .impCasts h3,
 .currentEpisodeSummary h3,
-.castCredit h3 {
+.castCredit h3,
+.episodesWrapper h2 {
 	font-size: 2rem;
 	font-weight: 300;
 	margin-bottom: 10px;
@@ -127,15 +133,32 @@
 	color: #fff;
 }
 
+.episodesWrapper,
+.castWrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
 	.seriesContainer,
-	.personConteainer {
+	.personConteainer,
+	.episodesWrapper,
+	.castWrapper {
 		max-width: 480px;
 		display: flex;
 	}
 
+	.episodesWrapper,
+	.castWrapper {
+		flex-direction: column;
+		padding: 0 10px;
+	}
+
 	.seriesContainer h1,
-	.personContainer h1 {
+	.personContainer h1,
+	.episodesWrapper h1,
+	.castWrapper h1 {
 		margin-top: 15px;
 		font-size: 2.4rem;
 	}
@@ -165,5 +188,12 @@
 
 	.currentEpisodeSummary {
 		margin-top: 10px;
+		width: 100%;
+	}
+}
+
+@media (min-width: 670px) and (max-width: 1024px) {
+	.impCasts .card:last-child {
+		display: none;
 	}
 }

@@ -63,16 +63,13 @@ tbody tr:hover {
 	justify-content: space-evenly;
 	min-width: 200px;
 	flex-wrap: wrap;
-	align-content: center;
 }
 
 .card {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
-	/* align-items: center; */
-	/* border: 1px solid; */
 	box-shadow: 2px 0px 4px #4281a4;
+	margin-top: 10px;
 }
 
 .card:hover {
@@ -91,6 +88,10 @@ tbody tr:hover {
 	text-align: left;
 	font-size: 12px;
 	text-align: center;
+}
+
+.titleCase {
+	text-transform: capitalize;
 }
 
 /* Header stuffs
@@ -197,11 +198,5 @@ tbody tr:hover {
 
 	.wiki {
 		box-shadow: none;
-	}
-}
-
-@media (min-width: 670px) and (max-width: 1024px) {
-	.card:last-child {
-		display: none;
 	}
 }

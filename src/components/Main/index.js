@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Series from '../../containers/Series';
 import SingleSeries from '../../containers/SingleSeries';
 import EpisodeList from '../../containers/SingleSeries/EpisodeList';
+import SingleEpisode from '../../containers/SingleSeries/SingleEpisode';
 import CastList from '../../containers/SingleSeries/CastList';
 import People from '../../containers/People';
 import Person from '../../containers/People/Person';
@@ -15,7 +16,8 @@ const main = (props) => {
 			<Route exact path="/series" component={Series} />
 			<Route exact path="/series/:id" component={SingleSeries} />
 			<Route exact path="/series/:id/cast" component={CastList} />
-			<Route path="/series/:id/episodes/" component={EpisodeList} />
+			<Route path="/series/:id/episodes" component={EpisodeList} />
+			<Route path="/series/:id/episode" component={SingleEpisode} />
 			<Route exact path="/people" component={People} />
 			<Route path="/people/:id" component={Person} />
 			<Route exact component={Error404} />

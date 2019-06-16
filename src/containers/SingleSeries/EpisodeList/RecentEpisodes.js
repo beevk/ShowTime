@@ -9,7 +9,7 @@ const EpisodeListItem = ({ episode, id }) => {
 				s{episode.season}e{episode.number}{' '}
 			</td>
 			<td>
-				<Link to={`/series/${id}/episodes?season=${episode.season}&episode=${episode.number}`}>
+				<Link to={`/series/${id}/episode?season=${episode.season}&episode=${episode.number}`}>
 					{episode.name}
 				</Link>
 			</td>
