@@ -22,7 +22,7 @@ const EpisodeListItem = (props) => {
 									<td>
 										s{episode.season}e{episode.number}
 									</td>
-									<td>
+									<td className="episodeTitle">
 										<Link
 											to={`/series/${props.seasonId}/episode?season=${episode.season}&episode=${episode.number}`}
 										>
@@ -42,9 +42,7 @@ const EpisodeListItem = (props) => {
 
 const DisplayEpisode = (props) => {
 	const episode = props.episode;
-	const imgSrc = episode.image ? episode.image.medium : 'https://via.placeholder.com/200?text=Image+Not+Found';
-
-	console.log(episode);
+	const imgSrc = episode.image ? episode.image.original : 'https://via.placeholder.com/200?text=Image+Not+Found';
 
 	const date = new Date(episode.airstamp);
 	return (

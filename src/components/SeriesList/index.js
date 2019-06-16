@@ -18,7 +18,7 @@ const SeriesListItem = ({ series }) => {
 				<div className="searchResult">
 					<img src={imageSrc} alt={series.show.name} style={{ height: 75 }} />
 					<div className="resultItem">
-						{series.show.name}
+						<span>{series.show.name}</span>
 						<span className="mono">
 							<span className="highlight"> {series.show.rating.average || 'n/a'} </span>
 							<span style={premieredStyle}> Premiered: </span>

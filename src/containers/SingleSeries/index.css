@@ -140,6 +140,24 @@
 	padding: 0 20px;
 }
 
+.seasonTitle {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #fff;
+	margin-top: 20px;
+	background-color: #4281a4;
+	padding: 0px 20px;
+}
+
+.seasonTitle span {
+	margin-right: 20px;
+	font-size: 1.5rem;
+}
+td.episodeTitle {
+	width: 70%;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
 	.seriesContainer,
 	.personConteainer,

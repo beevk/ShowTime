@@ -18,9 +18,18 @@ class EpisodeList extends React.Component {
 		});
 	}
 
+	toggleVisibility(e) {
+		e.preventDefault();
+		var table = e.target.nextElementSibling;
+		const symbol = e.target.childNodes[1];
+
+		table.style.display = table.style.display === 'none' ? 'block' : 'none';
+		symbol.innerText = symbol.innerText === '>' ? 'v' : '>';
+	}
+
 	render() {
 		const { episodes } = this.state;
-		if (episodes) console.log(episodes);
+
 		return (
 			<div className="main">
 				<div className="episodesWrapper">
@@ -29,7 +38,10 @@ class EpisodeList extends React.Component {
 						episodes.reverse().map((season, i) => {
 							return (
 								<div className="season" key={i}>
-									<h2>Season {season[i].season}</h2>
+									<div onClick={this.toggleVisibility.bind(this)} className="seasonTitle">
+										<h2>Season {season[i].season}</h2>
+										<span> > </span>
+									</div>
 									<EpisodeListItem episodes={season} seasonId={this.props.match.params.id} />
 								</div>
 							);

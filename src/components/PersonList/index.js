@@ -29,7 +29,7 @@ const PersonListItem = ({ item }) => {
 				<div className="searchResult">
 					<img src={imageSrc} alt={item.person.name} style={{ height: 75 }} />
 					<div className="resultItem">
-						{item.person.name}
+						<span>{item.person.name}</span>
 						<span className="mono">
 							{item.person.birthday && (
 								<span>
