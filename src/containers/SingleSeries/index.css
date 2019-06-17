@@ -92,7 +92,8 @@
 .impCasts h3,
 .currentEpisodeSummary h3,
 .castCredit h3,
-.episodesWrapper h2 {
+.episodesWrapper h2,
+.castWrapper h2 {
 	font-size: 2rem;
 	font-weight: 300;
 	margin-bottom: 10px;
@@ -156,6 +157,15 @@
 }
 td.episodeTitle {
 	width: 70%;
+}
+
+h1.seriesName {
+	font-size: 2.8rem;
+	font-weight: 300;
+	align-self: flex-start;
+	margin-top: 40px;
+	text-align: left;
+	margin-bottom: 20px;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {

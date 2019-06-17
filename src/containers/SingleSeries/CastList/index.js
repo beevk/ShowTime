@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SeriesName from '../SeriesName';
 // import fetch from 'whatwg-fetch';
 
 class CastList extends React.Component {
@@ -20,7 +21,8 @@ class CastList extends React.Component {
 		return (
 			<div className="main">
 				<div className="castWrapper">
-					<h1>Cast</h1>
+					<SeriesName id={this.props.match.params.id} />
+					<h2>Cast</h2>
 					<div className="cards">
 						{cast &&
 							cast.map((member, i) => {

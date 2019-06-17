@@ -1,5 +1,6 @@
 import React from 'react';
 import { DisplayEpisode } from '../SingleSeries/EpisodeList/Episode';
+import SeriesName from './SeriesName';
 
 class SingleEpisode extends React.Component {
 	state = {
@@ -27,7 +28,7 @@ class SingleEpisode extends React.Component {
 		return (
 			<div className="main">
 				<div className="episodesWrapper">
-					<h1>Series Name</h1>
+					<SeriesName id={this.props.match.params.id} />
 					{episode && <DisplayEpisode episode={episode} />}
 				</div>
 			</div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { EpisodeListItem } from './Episode';
+import SeriesName from '../SeriesName';
 
 class EpisodeList extends React.Component {
 	state = {
@@ -33,7 +34,7 @@ class EpisodeList extends React.Component {
 		return (
 			<div className="main">
 				<div className="episodesWrapper">
-					<h1>Series Name</h1>
+					<SeriesName id={this.props.match.params.id} />
 					{episodes &&
 						episodes.reverse().map((season, i) => {
 							return (
