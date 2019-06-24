@@ -32,7 +32,7 @@ class CastList extends React.Component {
 										? member.person.image.medium
 										: 'https://via.placeholder.com/200?text=Image+Not+Found';
 								return (
-									<div className="card">
+									<div className="card" key={i}>
 										<img src={imageSrc} alt={member.person.name} />
 										<Link className="cardTitle" to={`/people/${member.person.id}`} key={i}>
 											<h4>{member.person.name}</h4>
