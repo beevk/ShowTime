@@ -23,7 +23,7 @@ class EpisodeSummary extends React.Component {
 				<h3>{this.props.pointInTime} Episode</h3>
 				{information && (
 					<div className="epInfo">
-						<Link to={`/series/${id}/episodes?season=${information.season}&episode=${information.number}`}>
+						<Link to={`/series/${id}/episode?season=${information.season}&episode=${information.number}`}>
 							<span>
 								{information.name || ''}
 								<span className="highlight">

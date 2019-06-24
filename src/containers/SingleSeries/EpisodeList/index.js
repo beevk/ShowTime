@@ -21,8 +21,8 @@ class EpisodeList extends React.Component {
 
 	toggleVisibility(e) {
 		e.preventDefault();
-		var table = e.target.nextElementSibling;
-		const symbol = e.target.childNodes[1];
+		var table = e.currentTarget.nextElementSibling;
+		const symbol = e.currentTarget.childNodes[1];
 
 		table.style.display = table.style.display === 'none' ? 'block' : 'none';
 		symbol.innerText = symbol.innerText === '>' ? 'v' : '>';
@@ -41,7 +41,11 @@ class EpisodeList extends React.Component {
 								<div className="season" key={i}>
 									<div onClick={this.toggleVisibility.bind(this)} className="seasonTitle">
 										<h2>Season {season[i].season}</h2>
-										<span> > </span>
+										<span
+											style={{ border: '1px solid #fff', padding: '0px 20px', borderRadius: 4 }}
+										>
+											>
+										</span>
 									</div>
 									<EpisodeListItem episodes={season} seasonId={this.props.match.params.id} />
 								</div>
