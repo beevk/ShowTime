@@ -2,6 +2,7 @@
 
 Show-time is an app to track your favorite series. You can check information like total episodes, aired date, cast etc. about your favourite series here.
 This is just some random app that I worked on while I was bored.
+You can check live demo [here.](http://frozen-springs-87821.herokuapp.com)
 
 ## Available Scripts
 
